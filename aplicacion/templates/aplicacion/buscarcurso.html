@@ -1,0 +1,18 @@
+{% extends "aplicacion/index.html" %}
+
+{% block contenido %}
+<form method="get" action="{% url 'buscar' %}">
+    {% csrf_token %}
+    <label for="curso">Curso:</label>
+    <input type="text" id="curso" name="curso">
+    <input type="submit" value="Buscar">
+</form>
+
+<h2>Resultados:</h2>
+<ul>
+{% for curso in cursos %}
+    <li>{{ curso.nombre }} - {{ curso.comision }}</li>
+
+{% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "aplicacion/index.html" %}
+
+{% block contenido %}
+<h2 style="color: white;">Resultados de la búsqueda:</h2>
+{% if cursos %}
+    <ul>
+    {% for curso in cursos %}
+        <li style="color: white;">{{ curso.nombre }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p style="color: white;">No se encontraron cursos que coincidan con "{{ query }}".</p>
+{% endif %}
+{% endblock %}
