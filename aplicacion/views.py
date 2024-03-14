@@ -108,7 +108,7 @@ def registroForm(request):
             nombre_agencia = form.cleaned_data.get('nombre_agencia')
             contraseña = form.cleaned_data.get('contraseña')  
             confirmar_contraseña = form.cleaned_data.get('confirmar_contraseña')
-            return render(request, "aplicacion/index.html")
+            return render(request, "aplicacion/Agencias.html")
     else:
         form = RegistroForm()
     return render(request, 'aplicacion/cursoForm.html', {'form': form})
@@ -120,7 +120,7 @@ def formLogin(request):
         if form.is_valid():
             nombre_agencia = form.cleaned_data['nombre_agencia']
             contraseña = form.cleaned_data['contraseña']
-            return render(request, "aplicacion/index.html")
+            return render(request, "aplicacion/Agencias.html")
     else:
         form = LoginForm()  
     return render(request, 'aplicacion/formLogin.html', {'form': form})
@@ -134,10 +134,8 @@ def buscar(request):
 
     if 'curso' in request.GET:
         query = request.GET['curso']
-        # Realizar la búsqueda en la base de datos utilizando filter
         cursos_coincidentes = Curso.objects.filter(nombre__icontains=query)
     else:
-        # Si no se proporciona ningún término de búsqueda, se muestran todos los cursos
         cursos_coincidentes = Curso.objects.all()
 
     return render(request, "aplicacion/buscar_resultados.html", {'cursos': cursos_coincidentes, 'query': query})
