@@ -5,17 +5,17 @@ class CursoForm(forms.Form):
     comision = forms.IntegerField(max_value=100, required=True)
 
 class UsuarioForm(forms.Form):
-    nombre_agencia = forms.CharField(max_length=48)
-    contraseña = forms.CharField(max_length=100)
+    nombre_agencia = forms.CharField(max_length=48, required= True)
+    contraseña = forms.CharField(max_length=100. required= True)
 
 class StaffForm(forms.Form):
-    nombre = forms.CharField(max_length=48)
-    apellido = forms.CharField(max_length=48)
+    nombre = forms.CharField(max_length=48, required= True)
+    apellido = forms.CharField(max_length=48, required= True)
     email = forms.EmailField()
 
 class AgenciaForm(forms.Form):
-    nombre = forms.CharField(max_length=48)
-    tipo = forms.CharField(max_length=48)
+    nombre = forms.CharField(max_length=48, required= True)
+    tipo = forms.CharField(max_length=48, required= True) 
     id = forms.CharField(max_length=10)
 
 class RegistroForm(forms.Form):
